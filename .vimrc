@@ -52,6 +52,7 @@ Plug 'airblade/vim-gitgutter' "git diff markers
 Plug 'SirVer/ultisnips' " snippet solution
 Plug 'jlcrochet/vim-cs' " C# support
 Plug 'preservim/nerdtree' " File explorer
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 colo torte
@@ -87,4 +88,8 @@ let g:gitgutter_highlight_lines = 1
 let g:airline_powerline_fonts = 1  " Enable powerline fonts
 let g:airline#extensions#tabline#enabled = 1  " Enable the list of buffers
 let g:airline#extensions#tabline#formatter = 'default'  " Set the formatter
+
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1):"\<S-Tab>"
 
