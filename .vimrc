@@ -43,6 +43,7 @@ set cpoptions+=n " to make sure the line numbers are not copied
 call plug#begin('/Users/farah/.vim/plugged')
 
 Plug 'junegunn/fzf.vim' " fuzzy search
+" Usage fuzzy :Files :Rg :Buffers :History
 Plug 'tpope/vim-fugitive' " git functionality
 Plug 'dense-analysis/ale' " async lint engine
 Plug 'vim-airline/vim-airline' " status/tabline
@@ -56,17 +57,14 @@ call plug#end()
 colo torte
 
 " ALE configuration
-let g:ale_enabled = 1
 let g:ale_linters = {
 \   'python': ['flake8', 'mypy'],
 \   'javascript': ['eslint'],
 \   'typescript': ['tsserver', 'eslint'],
 \}
-let g:ale_lint_on_save = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
-let g:ale_fix_on_save = 1
 let g:ale_fixers = { 
             \'javascript': ['prettier'],
             \'typescript': ['prettier'] 
@@ -85,4 +83,8 @@ let g:gitgutter_sign_removed = '_'
 
 " Enable line highlighting for changes
 let g:gitgutter_highlight_lines = 1
+
+let g:airline_powerline_fonts = 1  " Enable powerline fonts
+let g:airline#extensions#tabline#enabled = 1  " Enable the list of buffers
+let g:airline#extensions#tabline#formatter = 'default'  " Set the formatter
 
